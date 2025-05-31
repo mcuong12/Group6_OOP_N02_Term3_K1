@@ -1,8 +1,9 @@
 package com.example.demo.model;
 
+import com.example.demo.common.Identifiable;
 import java.io.Serializable;
 
-public class Book implements Serializable {
+public class Book implements Serializable, Identifiable {
     private String id;
     private String title;
     private String author;
@@ -15,8 +16,8 @@ public class Book implements Serializable {
         this.genre = genre;
     }
 
-    // Getter
     public String getId() { return id; }
+
     public String getTitle() { return title; }
     public String getAuthor() { return author; }
     public String getGenre() { return genre; }

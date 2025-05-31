@@ -1,9 +1,10 @@
 package com.example.demo.model;
 
+import com.example.demo.common.Identifiable;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class BorrowRecord implements Serializable {
+public class BorrowRecord implements Serializable, Identifiable {
     private String studentId;
     private String bookId;
     private LocalDate borrowDate;
@@ -14,7 +15,8 @@ public class BorrowRecord implements Serializable {
         this.borrowDate = borrowDate;
     }
 
-    // Getter
+    public String getId() { return studentId + "_" + bookId; } // Unique ID
+
     public String getStudentId() { return studentId; }
     public String getBookId() { return bookId; }
     public LocalDate getBorrowDate() { return borrowDate; }
