@@ -20,14 +20,15 @@ public class GenericManager<T extends Identifiable> {
         saveToFile();   //ghi danh sách mới xuống file để đảm bảo dữ liệu được lưu trữ vĩnh viễn.
     }
 
-    public void update(String id, T newItem) {  //Cập nhật đối tượng đã tồn tại trong danh sách theo ID.
+    public boolean update(String id, T newItem) {  //Cập nhật đối tượng đã tồn tại trong danh sách theo ID.
         for (int i = 0; i < items.size(); i++) {    //Duyệt danh sách, tìm đối tượng có id phù hợp.
             if (items.get(i).getId().equals(id)) {
                 items.set(i, newItem);  // Thay thế đối tượng cũ
                 saveToFile();   // Ghi lại file
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public void delete(String id) { //Xóa đối tượng khỏi danh sách dựa theo ID.
